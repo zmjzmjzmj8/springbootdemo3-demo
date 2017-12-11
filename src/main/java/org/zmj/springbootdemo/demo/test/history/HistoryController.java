@@ -32,7 +32,7 @@ public class HistoryController extends CommonController{
         return JSONArray.fromObject(historyManager.findAll()).toString();
     }
 
-    @RequestMapping(value = "/showPageHistory" , method = RequestMethod.GET,produces="application/javascript;charset=UTF-8")
+    @RequestMapping(value = "/showPageHistory" , method = RequestMethod.POST,produces="application/javascript;charset=UTF-8")
     @ResponseBody
     @JsonAnnotation
     public String showHistory(String page , String size ,String[] sortDirections , String[] sortProperties)throws CommonException{
