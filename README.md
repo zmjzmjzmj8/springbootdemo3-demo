@@ -1,7 +1,7 @@
 # Springboot-Demo
 
 ## 关于
-Springboot-Demo是Springboot的应用示例，基于maven的工程。
+Springboot-Demo是Springboot搭建的后台管理系统应用示例，基于maven的工程。
 
 ## 编译运行
 编译运行前请修改配置文件，更改测试环境和正式环境配置
