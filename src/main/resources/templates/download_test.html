@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+    <p>您有以下Objects</p>
+    <p th:text="${list}">这里是列表.</p>
+    <h2>文件下载示例</h2>
+    <hr/>
+    <form method="POST" action="download">
+        <p>
+            文件：<input type="text" name="filename" />
+        </p>
+        <p>
+            <input type="submit" value="下载" />
+        </p>
+    </form>
+</body>
+</html>

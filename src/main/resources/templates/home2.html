@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Home</title>
+</head>
+<body>
+    <h1>Home</h1>
+    您好！<p th:text="${session.SPRING_SECURITY_CONTEXT.authentication.principal.username}"></p>
+    <a th:href="@{/login}">登录页面</a>
+    <a th:href="@{/hello}">hello页面(权限测试)</a>
+    <a th:href="@{/logout}">注销</a>
+</body>
+</html>

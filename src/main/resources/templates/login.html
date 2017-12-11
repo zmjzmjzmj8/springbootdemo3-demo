@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta charset="utf-8" />
+		<title>登录</title>
+		<link rel="stylesheet" type="text/css" href="css/login.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<style type="text/css">
+		</style>
+	</head>
+
+	<body>
+		<ul id="imglist">
+			<li class="opa-on" id="move"><img src="img/login1.jpg" alt="" /></li>
+			<li><img src="img/login2.jpg" alt="" /></li>
+			<li><img src="img/login3.jpg" alt="" /></li>
+		</ul>
+		<div class="content">
+			<div class="clear">
+				<h1 class="login-tit" id="login-tit">登录</h1>
+			<h1 class="register-tit" id="register-tit">注册</h1>
+			</div>
+			<div class="window">
+				<div class="login-list" id="login-list">
+				<div class="login">
+
+					<form th:action="@{/login}" method="post">
+						<p id="login-req"></p>
+						<input type="text" name="username" class="username" placeholder="用户名"/>
+						<input type="password" name="password" class="password" placeholder="密码"/>
+						<input class="remember-me" type="checkbox" id="rememberme" name="remember-me" placeholder="Remember Me"/>
+						<label class="remember-title" for="rememberme">记住登陆状态</label>
+						<button id="logincheck" type="submit">登录</button>
+					</form>
+				</div>
+				<div class="reg">
+					<form id="regform" method="post" onsubmit="false" action="/register">
+						<p id="register-req"></p>
+						<input type="text" name="username" class="username" placeholder="用户名"/>
+						<input type="password" name="password" class="password" placeholder="密码"/>
+						<input type="password" name="password" class="password" placeholder="确认密码"/>
+						<button id="regcheck" type="submit">注册并登录</button>
+					</form>
+				</div>
+			</div>
+				</div>
+		</div>
+		
+		
+		<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+		<script src="js/login.js"></script>
+
+	</body>
+
+</html>

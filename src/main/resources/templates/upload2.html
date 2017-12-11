@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+</head>
+<body>
+<form id= "uploadForm" enctype="multipart/form-data" onsubmit="false" method="post" action="upload">
+    <p >上传文件： <input type="file" name="file"/></p>
+    <button type="submit">上传</button>
+</form>
+<script type="text/javascript" src="js/jquery-3.2.1.min.js">
+
+</script>
+<script type="text/javascript">
+    window.onload = function() {
+        $('#uploadForm').submit(function(e){
+            var formData = new FormData(document.getElementById("uploadForm"));//表单id
+            alert("a");
+            $.ajax({
+                url: 'upload' ,
+                type: 'POST',
+                data: formData,
+                async:false,
+                success: function (returndata) {
+                    console.log(returndata);
+                    console.log(true);
+                },
+                error: function (returndata) {
+                    console.log(returndata);
+                    console.log(false);
+                }
+            });
+            e.preventDefault();
+        });
+    }
+</script>
+</body>
+</html>

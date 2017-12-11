@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>Document</title>
+</head>
+<body>
+	<form id= "uploadForm" enctype="multipart/form-data" >
+      <p >上传文件： <input type="file" id="toUploadImg" name="file"/></p>
+      <p id="id" name="id">1</p>
+</form>
+<input type="button" value="上传" onclick="doUpload()" />  
+<script type="text/javascript" src="js/jquery-3.2.1.min.js">
+</script>
+<script type="text/javascript">
+	function doUpload() {  
+     var formData = new FormData();  
+     var pic =  $('#toUploadImg')[0].files[0];  
+     var id = $('#id')[0].innerHTML
+     formData.append('file',pic)
+     formData.append('userId',id)
+     $.ajax({  
+          url: './uploadAvatar' ,
+          type: 'POST',  
+          data: formData,  
+          async: false,  
+          cache: false,  
+          contentType: false,  
+          processData: false,
+          success: function (returndata) {  
+              console.log(returndata);
+              console.log(true)
+          },  
+          error: function (returndata) {  
+              console.log(returndata);
+              console.log(false)
+          }  
+     });  
+}
+</script>
+</body>
+</html>

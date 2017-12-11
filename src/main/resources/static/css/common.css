@@ -1,0 +1,20 @@
+a{
+	text-decoration: none;
+}
+ul{
+	list-style: none;
+}
+li{
+	float: left;
+}
+ul::after{
+	content: "";
+	clear: both;
+	display: block;
+}
+.clear::after{
+	content: "";
+	clear: both;
+	display: block;
+}
+a:visited {color: #000}
