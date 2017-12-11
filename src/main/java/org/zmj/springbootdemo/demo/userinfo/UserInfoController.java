@@ -22,6 +22,7 @@ import org.zmj.springbootdemo.demo.mapper.func.dao.SysUserDao;
 import org.zmj.springbootdemo.demo.mapper.func.dao.SysUserInfoDao;
 import org.zmj.springbootdemo.demo.mapper.func.pojo.SysUser;
 import org.zmj.springbootdemo.demo.mapper.func.pojo.SysUserInfo;
+import org.zmj.springbootdemo.demo.utils.ZmjUtil;
 
 import java.io.*;
 
@@ -147,22 +148,25 @@ public class UserInfoController extends CommonController{
 
     /**
      * 设置用户信息
-     * @param sysUserInfo
+     * @param sysUserInfoNew
      * @return
      * @throws CommonException
      */
     @RequestMapping(value = "/setUserInfo", method = RequestMethod.POST,produces="application/javascript;charset=UTF-8")
     @ResponseBody
     @JsonAnnotation
-    public String setUserInfo(SysUserInfo sysUserInfo) throws CommonException{
+    public String setUserInfo(SysUserInfo sysUserInfoNew) throws CommonException{
         try {
-            if (sysUserInfo==null) {
+            if (sysUserInfoNew==null) {
                 throw new CommonException("UserInfo入参为空");
-            }else if(sysUserInfo.getUsrId()==0){
+            }else if(sysUserInfoNew.getUsrId()==0){
                 SysUser sysUser= getThisUser();
-                sysUserInfo.setUsrId(sysUser.getId());
+                sysUserInfoNew.setUsrId(sysUser.getId());
             }
-            return mapper.writeValueAsString(userInfoManager.saveSysUserInfo(sysUserInfo));
+            SysUserInfo sysUserInfoOld = sysUserInfoDao.findByUsrId(sysUserInfoNew.getUsrId());
+            //复制新对象到旧对象
+            ZmjUtil.copyPropertiesIgnoreNull(sysUserInfoNew,sysUserInfoOld);
+            return mapper.writeValueAsString(userInfoManager.saveSysUserInfo(sysUserInfoOld));
         }catch (Exception e){
             throw new CommonException(e.getMessage());
         }

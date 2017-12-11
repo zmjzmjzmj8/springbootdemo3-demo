@@ -1,12 +1,14 @@
 package org.zmj.springbootdemo.demo.mapper.func.pojo;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import org.hibernate.annotations.DynamicUpdate;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.util.Date;
 
 @Entity
+@DynamicUpdate(value = true)
 @Table(name="sys_userinfo")
 public class SysUserInfo {
 
