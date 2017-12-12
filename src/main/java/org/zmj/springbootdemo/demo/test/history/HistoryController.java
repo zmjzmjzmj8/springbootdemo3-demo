@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.zmj.springbootdemo.demo.commmon.CommonController;
 import org.zmj.springbootdemo.demo.commmon.JsonAnnotation;
@@ -35,12 +36,11 @@ public class HistoryController extends CommonController{
     @RequestMapping(value = "/showPageHistory" , method = RequestMethod.POST,produces="application/javascript;charset=UTF-8")
     @ResponseBody
     @JsonAnnotation
-    public String showHistory(String page , String size ,String[] sortDirections , String[] sortProperties)throws CommonException{
+    public String showHistory(String page , String size , String[] sortDirections , String[] sortProperties)throws CommonException{
         if(page==null|| "".equals(page) ||size==null|| "".equals(size)){
             throw new CommonException("不能为空");
         }
         System.out.println(page+size);
-        Gson gson = new Gson();
         return JSONArray.fromObject(historyManager.findAll(page,size,sortDirections,sortProperties)).toString();
     }
 }

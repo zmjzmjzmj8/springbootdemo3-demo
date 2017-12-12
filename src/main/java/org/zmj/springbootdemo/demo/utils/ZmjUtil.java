@@ -86,11 +86,6 @@ public class ZmjUtil {
         String s = "";
         System.out.println(ZmjUtil.isNullOrEmpty(s));
         SysUser sysUser1 = new SysUser();
-        sysUser1.setUsername("aaa");
-        sysUser1.setPassword("aaa");
-        SysUser sysUser2 = new SysUser();
-        sysUser2.setUsername("bbb");
-        copyPropertiesIgnoreNull(sysUser2,sysUser1);
-        System.out.printf(sysUser1.getUsername()+","+sysUser1.getPassword());
+        System.out.println(ZmjUtil.isNullOrEmpty(sysUser1.getId()));
     }
 }
