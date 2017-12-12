@@ -4,14 +4,14 @@ public enum SysCode implements CodeInterface{
     SYS_CODE_STATUS_SUCCESS (200,"成功"),SYS_CODE_STATUS_KNOWS_ERROR(500,"已知失败"), SAYS_CODE_STATUS_UNKNOWNS_ERROR(500,"未知失败");
 
     String description;
-    int value;
+    int code;
 
     SysCode() {
     }
 
-    SysCode( int value,String description) {
+    SysCode(int code, String description) {
         this.description = description;
-        this.value = value;
+        this.code = code;
     }
 
     public String getDescription() {
@@ -22,12 +22,12 @@ public enum SysCode implements CodeInterface{
         this.description = description;
     }
 
-    public int getValue() {
-        return value;
+    public int getCode() {
+        return code;
     }
 
-    public void setValue(int value) {
-        this.value = value;
+    public void setCode(int code) {
+        this.code = code;
     }
 
     @Override
@@ -37,6 +37,6 @@ public enum SysCode implements CodeInterface{
 
     @Override
     public void print() {
-        System.out.println(this.value+":"+this.description);
+        System.out.println(this.code +":"+this.description);
     }
 }
