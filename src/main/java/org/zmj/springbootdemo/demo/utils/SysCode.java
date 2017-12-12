@@ -6,7 +6,6 @@ public enum SysCode implements CodeInterface{
     //性别区分
     MAN(0,"男"), WOMAN(1,"女")
 
-
     ;
     String description;
     int code;
