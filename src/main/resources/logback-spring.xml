@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration scan="true">
     <!--定义日志文件的存储地址 勿在 LogBack 的配置中使用相对路径-->
-    <property name="LOG_NAME" code="/home/tomcat/apache-tomcat-8.5.8/logs"></property>
+    <property name="LOG_NAME" value="/home/tomcat/apache-tomcat-8.5.8/logs"></property>
     <!-- %m输出的信息,%p日志级别,%t线程名,%d日期,%c类的全名,,,, -->
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
@@ -14,15 +14,15 @@
     <!--<include resource="org/springframework/boot/logging/logback/base.xml"/>-->
     <contextName>RestAPI</contextName>
     <springProfile name="prod">
-        <property name="LOG_PATH" code="./logs"/>
+        <property name="LOG_PATH" value="./logs"/>
     </springProfile>
     <springProfile name="dev">
-        <property name="LOG_PATH" code=".logs"/>
+        <property name="LOG_PATH" value=".logs"/>
     </springProfile>
-    <!--<property name="LOG_PATH" code=".logs"/>-->
-    <!--<property name="LOG_PATH" code="/home/tomcat/apache-tomcat-8.5.8/logs"/>-->
+    <!--<property name="LOG_PATH" value=".logs"/>-->
+    <!--<property name="LOG_PATH" value="/home/tomcat/apache-tomcat-8.5.8/logs"/>-->
     <!--设置系统日志目录-->
-    <property name="APPDIR" code="security_log"/>
+    <property name="APPDIR" value="security_log"/>
     <!--
           说明：
           1、日志级别及文件
@@ -233,7 +233,7 @@
     <!--</contextListener>-->
 
     <springProfile name="prod">
-        <property name="LOG_PATH" code="/home/tomcat/apache-tomcat-8.5.8/logs"/>
+        <property name="LOG_PATH" value="/home/tomcat/apache-tomcat-8.5.8/logs"/>
         <root level="DEBUG">
             <appender-ref ref="FILEERROR"/>
             <appender-ref ref="FILEWARN"/>
@@ -246,7 +246,7 @@
     </springProfile>
 
     <springProfile name="dev">
-        <property name="LOG_PATH" code=".logs"/>
+        <property name="LOG_PATH" value=".logs"/>
         <root level="DEBUG">
             <appender-ref ref="FILEERROR"/>
             <appender-ref ref="FILEWARN"/>
