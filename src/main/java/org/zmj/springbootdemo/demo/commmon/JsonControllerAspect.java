@@ -10,6 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import org.zmj.springbootdemo.demo.commmon.exception.CommonException;
+import org.zmj.springbootdemo.demo.utils.SysCode;
 
 @Aspect
 @Component
@@ -33,7 +34,7 @@ public class JsonControllerAspect {
             // 保存目标方法执行后的返回值
             result = pjp.proceed(args);
             //成功状态码
-            jsonObject.put("status","200");
+            jsonObject.put("status",SysCode.SYS_CODE_STATUS_SUCCESS.getValue());
             jsonObject.put("msg","");
             if(result.toString().startsWith("{")) {
                 jsonObject.put("result", JSONObject.fromObject(result));
@@ -46,13 +47,13 @@ public class JsonControllerAspect {
             logger.error(e.getMessage());
             jsonObject = new JSONObject();
             //业务报错返回码（已知报错）
-            jsonObject.put("status","500");
+            jsonObject.put("status", SysCode.SYS_CODE_STATUS_KNOWS_ERROR.getValue());
             jsonObject.put("msg",e.getMessage());
         }catch (Exception e){
             logger.error(e.getMessage());
             jsonObject = new JSONObject();
             //非业务报错返回码（未知报错）
-            jsonObject.put("status","501");
+            jsonObject.put("status",SysCode.SAYS_CODE_STATUS_UNKNOWNS_ERROR.getValue());
             jsonObject.put("msg",e.getMessage());
         }finally {
             result=jsonObject.toString();
