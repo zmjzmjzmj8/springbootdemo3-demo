@@ -34,8 +34,8 @@ public class JsonControllerAspect {
             // 保存目标方法执行后的返回值
             result = pjp.proceed(args);
             //成功状态码
-            jsonObject.put("status",SysCode.SYS_CODE_STATUS_SUCCESS.getCode());
-            jsonObject.put("msg",SysCode.SYS_CODE_STATUS_SUCCESS.getInfo());
+            jsonObject.put("status",SysCode.SYS_CODE_STATUS_SUCCESS.getValue());
+            jsonObject.put("msg","");
             if(result.toString().startsWith("{")) {
                 jsonObject.put("result", JSONObject.fromObject(result));
             } else if(result.toString().startsWith("[")) {
@@ -47,14 +47,14 @@ public class JsonControllerAspect {
             logger.error(e.getMessage());
             jsonObject = new JSONObject();
             //业务报错返回码（已知报错）
-            jsonObject.put("status", SysCode.SYS_CODE_STATUS_KNOWS_ERROR.getCode());
-            jsonObject.put("msg",SysCode.SYS_CODE_STATUS_KNOWS_ERROR.getInfo()+","+e.getMessage());
+            jsonObject.put("status", SysCode.SYS_CODE_STATUS_KNOWS_ERROR.getValue());
+            jsonObject.put("msg",e.getMessage());
         }catch (Exception e){
             logger.error(e.getMessage());
             jsonObject = new JSONObject();
             //非业务报错返回码（未知报错）
-            jsonObject.put("status",SysCode.SAYS_CODE_STATUS_UNKNOWNS_ERROR.getCode());
-            jsonObject.put("msg",SysCode.SAYS_CODE_STATUS_UNKNOWNS_ERROR.getInfo()+","+e.getMessage());
+            jsonObject.put("status",SysCode.SAYS_CODE_STATUS_UNKNOWNS_ERROR.getValue());
+            jsonObject.put("msg",e.getMessage());
         }finally {
             result=jsonObject.toString();
             logger.info("请求结束，"+methodName+"的返回值是 " +result);
