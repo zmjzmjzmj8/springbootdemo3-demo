@@ -1,4 +1,4 @@
-package org.zmj.springbootdemo.demo.Service.history;
+package org.zmj.springbootdemo.demo.service.history;
 
 
 import org.springframework.beans.factory.annotation.Autowired;

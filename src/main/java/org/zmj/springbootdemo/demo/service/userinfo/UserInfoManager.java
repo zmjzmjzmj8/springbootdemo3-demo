@@ -1,4 +1,4 @@
-package org.zmj.springbootdemo.demo.Service.userinfo;
+package org.zmj.springbootdemo.demo.service.userinfo;
 
 import net.sf.json.JSONArray;
 import org.springframework.web.multipart.MultipartFile;

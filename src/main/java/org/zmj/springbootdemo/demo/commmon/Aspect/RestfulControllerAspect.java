@@ -39,9 +39,4 @@ public class RestfulControllerAspect {
             throw new CommonException(throwable.getMessage());
         }
     }
-
-    @AfterReturning(pointcut = "(restController())",returning = "object")
-    public void doAfterReturning(Object object){
-        logger.info("response={}",object);
-    }
 }

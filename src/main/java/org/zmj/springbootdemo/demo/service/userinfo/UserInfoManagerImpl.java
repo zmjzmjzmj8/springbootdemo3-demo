@@ -1,4 +1,4 @@
-package org.zmj.springbootdemo.demo.Service.userinfo;
+package org.zmj.springbootdemo.demo.service.userinfo;
 
 import com.aliyun.oss.OSSClient;
 import com.aliyun.oss.model.OSSObject;

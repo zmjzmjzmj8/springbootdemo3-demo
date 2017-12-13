@@ -20,7 +20,7 @@ import org.zmj.springbootdemo.demo.mapper.func.dao.SysUserDao;
 import org.zmj.springbootdemo.demo.mapper.func.dao.SysUserInfoDao;
 import org.zmj.springbootdemo.demo.mapper.func.pojo.SysUser;
 import org.zmj.springbootdemo.demo.mapper.func.pojo.SysUserInfo;
-import org.zmj.springbootdemo.demo.Service.userinfo.UserInfoManager;
+import org.zmj.springbootdemo.demo.service.userinfo.UserInfoManager;
 import org.zmj.springbootdemo.demo.utils.ZmjUtil;
 
 import java.io.*;

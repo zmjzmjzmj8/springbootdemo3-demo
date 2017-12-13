@@ -1,4 +1,4 @@
-package org.zmj.springbootdemo.demo.Service.history;
+package org.zmj.springbootdemo.demo.service.history;
 
 import org.springframework.data.domain.Page;
 import org.zmj.springbootdemo.demo.commmon.exception.CommonException;
