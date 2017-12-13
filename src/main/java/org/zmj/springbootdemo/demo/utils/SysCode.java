@@ -67,4 +67,5 @@ public enum SysCode implements CodeInterface {
 
         return null;
     }
+
 }

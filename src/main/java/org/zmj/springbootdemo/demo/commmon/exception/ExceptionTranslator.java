@@ -2,7 +2,11 @@ package org.zmj.springbootdemo.demo.commmon.exception;
 
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+import org.zmj.springbootdemo.demo.commmon.RestfulResult;
+import org.zmj.springbootdemo.demo.utils.RestfulResultUtils;
+import org.zmj.springbootdemo.demo.utils.SysCode;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -18,4 +22,9 @@ public class ExceptionTranslator {
         return mav;
     }
 
+    @ExceptionHandler(value = CommonException.class)
+    @ResponseBody
+    public RestfulResult handle(Exception e){
+        return RestfulResultUtils.error(SysCode.SYS_CODE_STATUS_KNOWS_ERROR.getCode(),e.getMessage().trim());
+    }
 }
