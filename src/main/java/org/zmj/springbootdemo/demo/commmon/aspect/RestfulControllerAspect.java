@@ -1,5 +1,6 @@
 package org.zmj.springbootdemo.demo.commmon.aspect;
 
+import net.sf.json.JSONObject;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -7,6 +8,7 @@ import org.aspectj.lang.annotation.Pointcut;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
+import org.zmj.springbootdemo.demo.commmon.RestfulResult;
 import org.zmj.springbootdemo.demo.commmon.exception.CommonException;
 import org.zmj.springbootdemo.demo.utils.RestfulResultUtils;
 
@@ -34,10 +36,16 @@ public class RestfulControllerAspect {
             // 保存目标方法执行后的返回值
             result = pjp.proceed(args);
             //自动装箱RestfulAnnotation，json解析
-            return RestfulResultUtils.success(result);
-        }catch (Exception e){
-            throw new CommonException(e.getMessage());
-        } catch (Throwable throwable) {
+            if(result instanceof String){
+                return JSONObject.fromObject(RestfulResultUtils.success(result)).toString();
+            }else if(result instanceof RestfulResult){
+                return result;
+            }else {
+                return result;
+            }
+        }catch (CommonException ce){
+            throw ce;
+        }catch (Throwable throwable) {
             throwable.printStackTrace();
             throw new CommonException(throwable.getMessage());
         }

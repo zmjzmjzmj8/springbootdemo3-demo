@@ -30,15 +30,16 @@ public class HistoryController extends CommonController{
     @RequestMapping(value = "/showHistory" , method = RequestMethod.GET)
     @ResponseBody
     @RestfulAnnotation
-    public String showHistory(){
+    public String showHistory() throws CommonException{
         return JSONArray.fromObject(historyManager.findAll()).toString();
     }
 
     @RequestMapping(value = "/showPageHistory" , method = RequestMethod.POST,produces="application/json;charset=UTF-8")
     @ResponseBody
+    @RestfulAnnotation
     public RestfulResult showHistory(String page , String size , String[] sortDirections , String[] sortProperties)throws CommonException{
         if(page==null|| "".equals(page) ||size==null|| "".equals(size)){
-            throw new CommonException(ErrorCode.NULL_ERROR,"不能为空");
+            throw new CommonException(ErrorCode.NULL_ERROR,"页码和每页数量不能为空");
         }
         return RestfulResultUtils.success(JSONArray.fromObject(historyManager.findAll(page,size,sortDirections,sortProperties)));
     }
