@@ -11,12 +11,12 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @SpringBootApplication
 @Configuration
-public class DemoApplication extends SpringBootServletInitializer {
+public class DemoApplication /*extends SpringBootServletInitializer*/ {
 
-	@Override
+	/*@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
 		return builder.sources(DemoApplication.class);
-	}
+	}*/
 
 	public static void main(String[] args) {
 		SpringApplication.run(DemoApplication.class, args);
