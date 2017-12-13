@@ -22,6 +22,7 @@ import org.zmj.springbootdemo.demo.mapper.func.pojo.SysUser;
 import org.zmj.springbootdemo.demo.mapper.func.pojo.SysUserInfo;
 import org.zmj.springbootdemo.demo.service.userinfo.UserInfoManager;
 import org.zmj.springbootdemo.demo.utils.ZmjUtil;
+import org.zmj.springbootdemo.demo.utils.sysenum.ErrorCode;
 
 import java.io.*;
 
@@ -64,7 +65,7 @@ public class UserInfoController extends CommonController{
     @RequestMapping(value = "/upload", method = RequestMethod.POST,produces="application/javascript;charset=UTF-8")
     @ResponseBody
     @RestfulAnnotation
-    public String upload(@RequestParam("file") MultipartFile file) {
+    public String upload(@RequestParam("file") MultipartFile file) throws CommonException{
         if (!file.isEmpty()) {
             try {
                 // 这里只是简单例子，文件直接输出到项目路径下。
@@ -78,17 +79,17 @@ public class UserInfoController extends CommonController{
                 userInfoManager.uploadfile(file);
             } catch (IllegalStateException e) {
                 e.printStackTrace();
-                return "上传失败,文件过大";
+                throw new CommonException(ErrorCode.FILE_UPLOAD_ERROR,"上传失败,文件过大");
             }catch (IOException e) {
                 e.printStackTrace();
-                return "上传失败," + e.getMessage();
-            }catch (CommonException e) {
+                throw new CommonException(ErrorCode.FILE_UPLOAD_ERROR,"上传失败IO异常," + e.getMessage());
+            }catch (Exception e) {
                 e.printStackTrace();
-                return "上传失败," + e.getMessage();
+                throw new CommonException(ErrorCode.FILE_UPLOAD_ERROR,"上传失败," + e.getMessage());
             }
             return "上传成功";
         } else {
-            return "上传失败，因为文件是空的.";
+            throw new CommonException(ErrorCode.NULL_ERROR,"上传失败，因为文件是空的");
         }
     }
 

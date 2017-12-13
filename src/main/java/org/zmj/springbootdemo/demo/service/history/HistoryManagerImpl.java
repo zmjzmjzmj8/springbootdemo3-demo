@@ -12,6 +12,7 @@ import org.zmj.springbootdemo.demo.commmon.exception.CommonException;
 import org.zmj.springbootdemo.demo.mapper.test.dao.HistoryDao;
 import org.zmj.springbootdemo.demo.mapper.test.pojo.History;
 import org.zmj.springbootdemo.demo.utils.ZmjUtil;
+import org.zmj.springbootdemo.demo.utils.sysenum.ErrorCode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,7 +39,7 @@ public class HistoryManagerImpl implements HistoryManager{
         }
         else{
             if(sortDirections.length!=sortProperties.length){
-                throw new CommonException("入参排序数组长度不一致");
+                throw new CommonException(ErrorCode.VERIFY_ERROR,"入参排序数组长度不一致");
             }
             for(int i=0;i<sortDirections.length;i++){
                 if(ZmjUtil.isNullOrEmpty(sortDirections[i])||ZmjUtil.isNullOrEmpty(sortProperties[i])) {

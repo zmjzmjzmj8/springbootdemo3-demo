@@ -16,6 +16,7 @@ import org.zmj.springbootdemo.demo.commmon.exception.CommonException;
 import org.zmj.springbootdemo.demo.mapper.func.dao.SysUserInfoDao;
 import org.zmj.springbootdemo.demo.mapper.func.pojo.SysUserInfo;
 import org.zmj.springbootdemo.demo.utils.MD5Util;
+import org.zmj.springbootdemo.demo.utils.sysenum.ErrorCode;
 
 import java.io.*;
 import java.util.List;
@@ -38,7 +39,7 @@ public class UserInfoManagerImpl extends CommonManager implements UserInfoManage
         PropertyConfigurator.configure("conf/log4j-AliOSS.properties");
         OSSClient ossClient = new OSSClient(HelloOSS.ENDPOINT, HelloOSS.ACCESS_KEY_ID, HelloOSS.ACCESS_KEY_SECRET);
         ossClient.putObject(HelloOSS.BUCKET_NAME, file.getOriginalFilename(), file.getInputStream());
-        System.out.println("Object：" + file.getOriginalFilename() + "存入OSS成功。");
+        logger.info("Object：" + file.getOriginalFilename() + "存入OSS成功。");
         ossClient.shutdown();
     }
     /**
@@ -53,7 +54,7 @@ public class UserInfoManagerImpl extends CommonManager implements UserInfoManage
         PropertyConfigurator.configure("conf/log4j-AliOSS.properties");
         OSSClient ossClient = new OSSClient(HelloOSS.ENDPOINT, HelloOSS.ACCESS_KEY_ID, HelloOSS.ACCESS_KEY_SECRET);
         ossClient.putObject(HelloOSS.BUCKET_NAME, fileName, file.getInputStream());
-        System.out.println("Object：" + fileName + "存入OSS成功。");
+        logger.info("Object：" + fileName + "存入OSS成功。");
         ossClient.shutdown();
     }
 
@@ -116,7 +117,7 @@ public class UserInfoManagerImpl extends CommonManager implements UserInfoManage
     public void uploadAvatar(MultipartFile file,String userId) throws CommonException, IOException {
         SysUserInfo  sysUserInfo= sysUserInfoDao.findByUsrId(Long.valueOf(userId));
         if(sysUserInfo==null) {
-            throw new CommonException("找不到对应id的用户");
+            throw new CommonException(ErrorCode.NOT_FIND_ERROR,"找不到对应id的用户");
         }
         String filename = file.getOriginalFilename();
         String prefix=filename.substring(filename.lastIndexOf(".")+1);//获取文件后缀名

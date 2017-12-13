@@ -15,6 +15,7 @@ import org.zmj.springbootdemo.demo.commmon.register.RegisterManager;
 import org.zmj.springbootdemo.demo.mapper.func.dao.SysUserDao;
 import org.zmj.springbootdemo.demo.mapper.func.pojo.SysUser;
 import org.zmj.springbootdemo.demo.utils.VerifyCodeUtils;
+import org.zmj.springbootdemo.demo.utils.sysenum.ErrorCode;
 
 @Controller
 public class HelloController extends CommonController{
@@ -138,7 +139,7 @@ public class HelloController extends CommonController{
     public String checkImageCode(String imageCode) throws Exception{
         String imageCodeT = (String) session.getAttribute("imageCode");
         if(imageCodeT==null||"".equals(imageCodeT)||!imageCodeT.equals(imageCode)){
-            throw new CommonException("验证码错误");
+            throw new CommonException(ErrorCode.VERIFY_ERROR,"验证码错误");
         }
         return "Success";
     }
