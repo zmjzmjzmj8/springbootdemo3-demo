@@ -7,6 +7,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.zmj.springbootdemo.demo.commmon.RestfulResult;
 import org.zmj.springbootdemo.demo.utils.RestfulResultUtils;
 import org.zmj.springbootdemo.demo.utils.SysCode;
+import org.zmj.springbootdemo.demo.utils.ZmjUtil;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -24,7 +25,12 @@ public class ExceptionTranslator {
 
     @ExceptionHandler(value = CommonException.class)
     @ResponseBody
-    public RestfulResult handle(Exception e){
-        return RestfulResultUtils.error(SysCode.SYS_CODE_STATUS_KNOWS_ERROR.getCode(),e.getMessage().trim());
+    public RestfulResult handle(CommonException e){
+        if(ZmjUtil.isNullOrEmpty(e.getCode())){
+            return RestfulResultUtils.error(SysCode.SAYS_CODE_STATUS_UNKNOWNS_ERROR.getCode(),e.getMessage().trim());
+        }
+        else{
+            return RestfulResultUtils.error(e.getCode(),e.getMessage().trim());
+        }
     }
 }

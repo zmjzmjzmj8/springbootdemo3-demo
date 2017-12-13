@@ -14,7 +14,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.zmj.springbootdemo.demo.commmon.CommonController;
 import org.zmj.springbootdemo.demo.commmon.JsonAnnotation;
 import org.zmj.springbootdemo.demo.commmon.JsonpAnnotation;
+import org.zmj.springbootdemo.demo.commmon.RestfulResult;
 import org.zmj.springbootdemo.demo.commmon.exception.CommonException;
+import org.zmj.springbootdemo.demo.utils.RestfulResultUtils;
+import org.zmj.springbootdemo.demo.utils.SysCode;
 
 @SuppressWarnings("ALL")
 @Controller
@@ -33,14 +36,13 @@ public class HistoryController extends CommonController{
         return JSONArray.fromObject(historyManager.findAll()).toString();
     }
 
-    @RequestMapping(value = "/showPageHistory" , method = RequestMethod.POST,produces="application/javascript;charset=UTF-8")
+    @RequestMapping(value = "/showPageHistory" , method = RequestMethod.POST,produces="application/json;charset=UTF-8")
     @ResponseBody
-    @JsonAnnotation
-    public String showHistory(String page , String size , String[] sortDirections , String[] sortProperties)throws CommonException{
+    public RestfulResult showHistory(String page , String size , String[] sortDirections , String[] sortProperties)throws CommonException{
         if(page==null|| "".equals(page) ||size==null|| "".equals(size)){
-            throw new CommonException("不能为空");
+            throw new CommonException(SysCode.SYS_CODE_STATUS_KNOWS_ERROR.getCode(),"不能为空");
         }
         System.out.println(page+size);
-        return JSONArray.fromObject(historyManager.findAll(page,size,sortDirections,sortProperties)).toString();
+        return RestfulResultUtils.success(JSONArray.fromObject(historyManager.findAll(page,size,sortDirections,sortProperties)).toString());
     }
 }
