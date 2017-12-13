@@ -1,4 +1,4 @@
-package org.zmj.springbootdemo.demo.userinfo;
+package org.zmj.springbootdemo.demo.controller;
 
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
@@ -7,8 +7,6 @@ import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -16,12 +14,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.zmj.springbootdemo.demo.commmon.CommonController;
-import org.zmj.springbootdemo.demo.commmon.JsonAnnotation;
+import org.zmj.springbootdemo.demo.commmon.Aspect.RestfulAnnotation;
 import org.zmj.springbootdemo.demo.commmon.exception.CommonException;
 import org.zmj.springbootdemo.demo.mapper.func.dao.SysUserDao;
 import org.zmj.springbootdemo.demo.mapper.func.dao.SysUserInfoDao;
 import org.zmj.springbootdemo.demo.mapper.func.pojo.SysUser;
 import org.zmj.springbootdemo.demo.mapper.func.pojo.SysUserInfo;
+import org.zmj.springbootdemo.demo.Service.userinfo.UserInfoManager;
 import org.zmj.springbootdemo.demo.utils.ZmjUtil;
 
 import java.io.*;
@@ -64,7 +63,7 @@ public class UserInfoController extends CommonController{
      */
     @RequestMapping(value = "/upload", method = RequestMethod.POST,produces="application/javascript;charset=UTF-8")
     @ResponseBody
-    @JsonAnnotation
+    @RestfulAnnotation
     public String upload(@RequestParam("file") MultipartFile file) {
         if (!file.isEmpty()) {
             try {
@@ -136,7 +135,7 @@ public class UserInfoController extends CommonController{
      */
     @RequestMapping(value = "/getUserInfoByName", method = RequestMethod.GET,produces="application/javascript;charset=UTF-8")
     @ResponseBody
-    @JsonAnnotation
+    @RestfulAnnotation
     public String getUserInfoByName(String name)throws CommonException{
         if (name==null|| "".equals(name)) {
             throw new CommonException("name入参为空");
@@ -154,7 +153,7 @@ public class UserInfoController extends CommonController{
      */
     @RequestMapping(value = "/setUserInfo", method = RequestMethod.POST,produces="application/javascript;charset=UTF-8")
     @ResponseBody
-    @JsonAnnotation
+    @RestfulAnnotation
     public String setUserInfo(SysUserInfo sysUserInfoNew) throws CommonException{
         try {
             if (sysUserInfoNew==null) {
@@ -179,7 +178,7 @@ public class UserInfoController extends CommonController{
      */
     @RequestMapping(value = "/getThisUserInfo", method = RequestMethod.GET,produces="application/javascript;charset=UTF-8")
     @ResponseBody
-    @JsonAnnotation
+    @RestfulAnnotation
     public String getThisUserInfo() throws CommonException {
         try {
             SysUser sysUser= getThisUser();
@@ -198,7 +197,7 @@ public class UserInfoController extends CommonController{
      */
     @RequestMapping(value = "/uploadAvatar", method = RequestMethod.POST,produces="application/javascript;charset=UTF-8")
     @ResponseBody
-    @JsonAnnotation
+    @RestfulAnnotation
     public String uploadAvatar(@RequestParam("file") MultipartFile file,String userId) {
         if (!file.isEmpty()) {
             try {

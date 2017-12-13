@@ -9,14 +9,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.zmj.springbootdemo.demo.commmon.CommonController;
-import org.zmj.springbootdemo.demo.commmon.JsonAnnotation;
-import org.zmj.springbootdemo.demo.commmon.JsonpAnnotation;
+import org.zmj.springbootdemo.demo.commmon.Aspect.RestfulAnnotation;
 import org.zmj.springbootdemo.demo.commmon.exception.CommonException;
 import org.zmj.springbootdemo.demo.commmon.register.RegisterManager;
 import org.zmj.springbootdemo.demo.mapper.func.dao.SysUserDao;
 import org.zmj.springbootdemo.demo.mapper.func.pojo.SysUser;
 import org.zmj.springbootdemo.demo.utils.VerifyCodeUtils;
-import java.util.UUID;
 
 @Controller
 public class HelloController extends CommonController{
@@ -99,7 +97,7 @@ public class HelloController extends CommonController{
      */
     @RequestMapping("/authImageBase64")
     @ResponseBody
-    @JsonAnnotation
+    @RestfulAnnotation
     public String authImageBase64() throws Exception{
         JSONObject jsonObject =  new JSONObject();
         //利用图片工具生成图片
@@ -136,7 +134,7 @@ public class HelloController extends CommonController{
      */
     @RequestMapping(value = "/checkImageCode",method = RequestMethod.GET,produces="application/javascript;charset=UTF-8")
     @ResponseBody
-    @JsonAnnotation
+    @RestfulAnnotation
     public String checkImageCode(String imageCode) throws Exception{
         String imageCodeT = (String) session.getAttribute("imageCode");
         if(imageCodeT==null||"".equals(imageCodeT)||!imageCodeT.equals(imageCode)){

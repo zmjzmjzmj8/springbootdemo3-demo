@@ -1,7 +1,6 @@
-package org.zmj.springbootdemo.demo.test.history;
+package org.zmj.springbootdemo.demo.controller;
 
 
-import com.google.gson.Gson;
 import net.sf.json.JSONArray;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,15 +8,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.zmj.springbootdemo.demo.commmon.Aspect.RestfulAnnotation;
 import org.zmj.springbootdemo.demo.commmon.CommonController;
-import org.zmj.springbootdemo.demo.commmon.JsonAnnotation;
-import org.zmj.springbootdemo.demo.commmon.JsonpAnnotation;
-import org.zmj.springbootdemo.demo.commmon.RestfulResult;
 import org.zmj.springbootdemo.demo.commmon.exception.CommonException;
-import org.zmj.springbootdemo.demo.utils.RestfulResultUtils;
-import org.zmj.springbootdemo.demo.utils.SysCode;
+import org.zmj.springbootdemo.demo.Service.history.HistoryManager;
+import org.zmj.springbootdemo.demo.utils.ErrorCode;
 
 @SuppressWarnings("ALL")
 @Controller
@@ -31,18 +27,19 @@ public class HistoryController extends CommonController{
 
     @RequestMapping(value = "/showHistory" , method = RequestMethod.GET)
     @ResponseBody
-    @JsonAnnotation
+    @RestfulAnnotation
     public String showHistory(){
         return JSONArray.fromObject(historyManager.findAll()).toString();
     }
 
     @RequestMapping(value = "/showPageHistory" , method = RequestMethod.POST,produces="application/json;charset=UTF-8")
     @ResponseBody
-    public RestfulResult showHistory(String page , String size , String[] sortDirections , String[] sortProperties)throws CommonException{
+    @RestfulAnnotation
+    public String showHistory(String page , String size , String[] sortDirections , String[] sortProperties)throws CommonException{
         if(page==null|| "".equals(page) ||size==null|| "".equals(size)){
-            throw new CommonException(SysCode.SYS_CODE_STATUS_KNOWS_ERROR.getCode(),"不能为空");
+            throw new CommonException(ErrorCode.NULL_ERROR,"不能为空");
         }
         System.out.println(page+size);
-        return RestfulResultUtils.success(JSONArray.fromObject(historyManager.findAll(page,size,sortDirections,sortProperties)).toString());
+        return JSONArray.fromObject(historyManager.findAll(page,size,sortDirections,sortProperties)).toString();
     }
 }

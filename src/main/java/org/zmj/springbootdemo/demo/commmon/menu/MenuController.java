@@ -3,14 +3,11 @@ package org.zmj.springbootdemo.demo.commmon.menu;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.zmj.springbootdemo.demo.commmon.CommonController;
-import org.zmj.springbootdemo.demo.commmon.JsonAnnotation;
-import org.zmj.springbootdemo.demo.commmon.JsonpAnnotation;
+import org.zmj.springbootdemo.demo.commmon.Aspect.RestfulAnnotation;
 import org.zmj.springbootdemo.demo.mapper.func.pojo.SysPermission;
 
 import java.util.ArrayList;
@@ -28,7 +25,7 @@ public class MenuController extends CommonController{
      * @return
      */
     @RequestMapping(value = "/showFunc",method = RequestMethod.GET,produces="application/javascript;charset=UTF-8")
-    @JsonAnnotation
+    @RestfulAnnotation
     public String showFunc() throws Exception{
         JSONObject jsonObject = new JSONObject();
         String username = getThisUser().getUsername();
@@ -42,7 +39,7 @@ public class MenuController extends CommonController{
      * @return
      */
     @RequestMapping(value = "/showMenu",method = RequestMethod.GET,produces="application/javascript;charset=UTF-8")
-    @JsonAnnotation
+    @RestfulAnnotation
     public String showMenu() throws Exception{
         String username = getThisUser().getUsername();
         List<SysPermission> sysPermissions = menuManager.findAllByUserName(username);
