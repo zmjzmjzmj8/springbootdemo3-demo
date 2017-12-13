@@ -12,6 +12,10 @@ import org.springframework.stereotype.Component;
 import org.zmj.springbootdemo.demo.commmon.exception.CommonException;
 import org.zmj.springbootdemo.demo.utils.RestfulResultUtils;
 
+/**
+ * 注释RestfulAnnotation的切面，用于自动装箱RestfulResult
+ * @author zmj
+ */
 @Aspect
 @Component
 public class RestfulControllerAspect {
@@ -31,6 +35,7 @@ public class RestfulControllerAspect {
             Object[] args = pjp.getArgs();
             // 保存目标方法执行后的返回值
             result = pjp.proceed(args);
+            //自动装箱RestfulAnnotation，json解析
             return JSONObject.fromObject(RestfulResultUtils.success(result)).toString();
         }catch (Exception e){
             throw new CommonException(e.getMessage());

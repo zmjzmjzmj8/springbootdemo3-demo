@@ -40,7 +40,6 @@ public class HistoryController extends CommonController{
         if(page==null|| "".equals(page) ||size==null|| "".equals(size)){
             throw new CommonException(ErrorCode.NULL_ERROR,"不能为空");
         }
-        System.out.println(page+size);
         return RestfulResultUtils.success(JSONArray.fromObject(historyManager.findAll(page,size,sortDirections,sortProperties)).toString());
     }
 }

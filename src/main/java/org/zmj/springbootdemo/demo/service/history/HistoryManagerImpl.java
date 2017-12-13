@@ -57,8 +57,6 @@ public class HistoryManagerImpl implements HistoryManager{
         }
         Pageable pageable = new PageRequest(Integer.valueOf(page),Integer.valueOf(size),sort);
         Page<History> historyPage = historyDao.findAll(pageable);
-        System.out.println("总条数："+historyPage.getTotalElements());
-        System.out.println("总页数："+historyPage.getTotalPages());
         return historyPage;
     }
 }

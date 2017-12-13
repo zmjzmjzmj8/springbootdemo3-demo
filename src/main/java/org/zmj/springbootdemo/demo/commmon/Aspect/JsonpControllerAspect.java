@@ -11,6 +11,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import org.zmj.springbootdemo.demo.commmon.exception.CommonException;
 
+/**
+ * jsonp切面（暂时废除）
+ * @author zmj
+ */
 @Aspect
 @Component
 public class JsonpControllerAspect {
