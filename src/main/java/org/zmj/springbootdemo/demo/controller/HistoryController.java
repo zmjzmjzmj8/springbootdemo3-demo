@@ -14,7 +14,7 @@ import org.zmj.springbootdemo.demo.commmon.CommonController;
 import org.zmj.springbootdemo.demo.commmon.RestfulResult;
 import org.zmj.springbootdemo.demo.commmon.exception.CommonException;
 import org.zmj.springbootdemo.demo.service.history.HistoryManager;
-import org.zmj.springbootdemo.demo.utils.ErrorCode;
+import org.zmj.springbootdemo.demo.utils.sysenum.ErrorCode;
 import org.zmj.springbootdemo.demo.utils.RestfulResultUtils;
 
 @SuppressWarnings("ALL")

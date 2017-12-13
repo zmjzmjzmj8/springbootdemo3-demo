@@ -1,4 +1,6 @@
-package org.zmj.springbootdemo.demo.utils;
+package org.zmj.springbootdemo.demo.utils.sysenum;
+
+import org.zmj.springbootdemo.demo.utils.CodeInterface;
 
 /**
  * @author zmj

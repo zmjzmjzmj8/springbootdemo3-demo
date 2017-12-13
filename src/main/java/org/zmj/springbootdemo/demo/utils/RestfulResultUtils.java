@@ -1,7 +1,7 @@
 package org.zmj.springbootdemo.demo.utils;
 
-import net.sf.json.JSONObject;
 import org.zmj.springbootdemo.demo.commmon.RestfulResult;
+import org.zmj.springbootdemo.demo.utils.sysenum.SysCode;
 
 /**
  * RestfulResult对象工厂工具

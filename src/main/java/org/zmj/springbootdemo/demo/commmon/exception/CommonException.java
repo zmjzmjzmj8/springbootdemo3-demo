@@ -1,6 +1,6 @@
 package org.zmj.springbootdemo.demo.commmon.exception;
 
-import org.zmj.springbootdemo.demo.utils.ErrorCode;
+import org.zmj.springbootdemo.demo.utils.sysenum.ErrorCode;
 
 public class CommonException extends RuntimeException {
 

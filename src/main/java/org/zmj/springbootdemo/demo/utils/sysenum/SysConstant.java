@@ -1,4 +1,4 @@
-package org.zmj.springbootdemo.demo.utils;
+package org.zmj.springbootdemo.demo.utils.sysenum;
 
 public class SysConstant {
     public static final String MAN = "0";//男
