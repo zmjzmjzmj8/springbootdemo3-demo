@@ -1,8 +1,6 @@
-package org.zmj.springbootdemo.demo.commmon.Aspect;
+package org.zmj.springbootdemo.demo.commmon.aspect;
 
-import net.sf.json.JSONObject;
 import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
@@ -27,7 +25,7 @@ public class RestfulControllerAspect {
     }
 
     @Around("restController()")
-    public  Object doAround(ProceedingJoinPoint pjp) throws CommonException{
+    public  Object doAround(ProceedingJoinPoint pjp) throws CommonException {
         Object result;
         String methodName = pjp.getSignature().getName();
         try {
@@ -36,7 +34,7 @@ public class RestfulControllerAspect {
             // 保存目标方法执行后的返回值
             result = pjp.proceed(args);
             //自动装箱RestfulAnnotation，json解析
-            return JSONObject.fromObject(RestfulResultUtils.success(result)).toString();
+            return RestfulResultUtils.success(result);
         }catch (Exception e){
             throw new CommonException(e.getMessage());
         } catch (Throwable throwable) {

@@ -1,4 +1,4 @@
-package org.zmj.springbootdemo.demo.commmon.Aspect;
+package org.zmj.springbootdemo.demo.commmon.aspect;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

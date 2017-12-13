@@ -1,4 +1,4 @@
-package org.zmj.springbootdemo.demo.commmon.Aspect;
+package org.zmj.springbootdemo.demo.commmon.aspect;
 
 import net.sf.json.JSONObject;
 import org.aspectj.lang.JoinPoint;
@@ -12,7 +12,6 @@ import org.zmj.springbootdemo.demo.commmon.RestfulResult;
 import org.zmj.springbootdemo.demo.utils.ZmjUtil;
 
 import javax.servlet.http.HttpServletRequest;
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 /**

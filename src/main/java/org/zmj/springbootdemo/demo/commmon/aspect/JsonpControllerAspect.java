@@ -1,4 +1,4 @@
-package org.zmj.springbootdemo.demo.commmon.Aspect;
+package org.zmj.springbootdemo.demo.commmon.aspect;
 
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;

@@ -9,7 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.zmj.springbootdemo.demo.commmon.Aspect.RestfulAnnotation;
+import org.zmj.springbootdemo.demo.commmon.aspect.RestfulAnnotation;
 import org.zmj.springbootdemo.demo.commmon.CommonController;
 import org.zmj.springbootdemo.demo.commmon.RestfulResult;
 import org.zmj.springbootdemo.demo.commmon.exception.CommonException;
