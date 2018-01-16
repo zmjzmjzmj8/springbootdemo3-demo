@@ -8,7 +8,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.zmj.springbootdemo.demo.commmon.exception.CommonException;
+import org.zmj.springbootdemo.demo.common.exception.CommonException;
 import org.zmj.springbootdemo.demo.mapper.test.dao.HistoryDao;
 import org.zmj.springbootdemo.demo.mapper.test.pojo.History;
 import org.zmj.springbootdemo.demo.utils.ZmjUtil;

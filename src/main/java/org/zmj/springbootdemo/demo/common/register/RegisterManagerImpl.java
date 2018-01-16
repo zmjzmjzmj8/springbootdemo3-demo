@@ -1,11 +1,11 @@
-package org.zmj.springbootdemo.demo.commmon.register;
+package org.zmj.springbootdemo.demo.common.register;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.zmj.springbootdemo.demo.commmon.CommonManager;
+import org.zmj.springbootdemo.demo.common.CommonManager;
 import org.zmj.springbootdemo.demo.mapper.func.dao.SysRoleDao;
 import org.zmj.springbootdemo.demo.mapper.func.dao.SysUserDao;
 import org.zmj.springbootdemo.demo.mapper.func.dao.Sys_role_userDao;

@@ -1,6 +1,6 @@
 package org.zmj.springbootdemo.demo.utils;
 
-import org.zmj.springbootdemo.demo.commmon.RestfulResult;
+import org.zmj.springbootdemo.demo.common.RestfulResult;
 import org.zmj.springbootdemo.demo.utils.sysenum.SysCode;
 
 /**

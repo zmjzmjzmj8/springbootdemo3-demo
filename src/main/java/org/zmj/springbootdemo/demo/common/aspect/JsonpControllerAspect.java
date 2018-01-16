@@ -1,4 +1,4 @@
-package org.zmj.springbootdemo.demo.commmon.aspect;
+package org.zmj.springbootdemo.demo.common.aspect;
 
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
@@ -9,7 +9,7 @@ import org.aspectj.lang.annotation.Pointcut;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
-import org.zmj.springbootdemo.demo.commmon.exception.CommonException;
+import org.zmj.springbootdemo.demo.common.exception.CommonException;
 
 /**
  * jsonp切面（暂时废除）

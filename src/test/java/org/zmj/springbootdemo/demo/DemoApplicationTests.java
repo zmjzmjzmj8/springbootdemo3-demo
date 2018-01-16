@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
-import org.zmj.springbootdemo.demo.commmon.register.RegisterManager;
+import org.zmj.springbootdemo.demo.common.register.RegisterManager;
 import org.zmj.springbootdemo.demo.mapper.func.dao.SysUserDao;
 import org.zmj.springbootdemo.demo.mapper.test.dao.HistoryDao;
 

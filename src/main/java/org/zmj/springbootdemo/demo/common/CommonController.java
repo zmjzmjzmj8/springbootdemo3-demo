@@ -1,4 +1,4 @@
-package org.zmj.springbootdemo.demo.commmon;
+package org.zmj.springbootdemo.demo.common;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -6,7 +6,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.zmj.springbootdemo.demo.commmon.exception.CommonException;
+import org.zmj.springbootdemo.demo.common.exception.CommonException;
 import org.zmj.springbootdemo.demo.mapper.func.dao.SysUserDao;
 import org.zmj.springbootdemo.demo.mapper.func.pojo.SysUser;
 import org.zmj.springbootdemo.demo.utils.ZmjUtil;

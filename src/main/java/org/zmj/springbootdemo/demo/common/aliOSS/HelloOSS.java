@@ -19,7 +19,7 @@
  * 
  */
 
-package org.zmj.springbootdemo.demo.commmon.aliOSS;
+package org.zmj.springbootdemo.demo.common.aliOSS;
 
 import com.aliyun.oss.ClientException;
 import com.aliyun.oss.OSSClient;

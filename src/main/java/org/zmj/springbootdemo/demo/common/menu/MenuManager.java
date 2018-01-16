@@ -1,4 +1,4 @@
-package org.zmj.springbootdemo.demo.commmon.menu;
+package org.zmj.springbootdemo.demo.common.menu;
 
 import org.zmj.springbootdemo.demo.mapper.func.pojo.SysPermission;
 

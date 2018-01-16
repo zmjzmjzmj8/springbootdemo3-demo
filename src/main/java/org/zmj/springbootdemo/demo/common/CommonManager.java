@@ -1,4 +1,4 @@
-package org.zmj.springbootdemo.demo.commmon;
+package org.zmj.springbootdemo.demo.common;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;

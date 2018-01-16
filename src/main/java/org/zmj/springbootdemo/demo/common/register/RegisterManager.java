@@ -1,4 +1,4 @@
-package org.zmj.springbootdemo.demo.commmon.register;
+package org.zmj.springbootdemo.demo.common.register;
 
 public interface RegisterManager {
     /**

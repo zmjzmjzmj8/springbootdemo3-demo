@@ -1,4 +1,4 @@
-package org.zmj.springbootdemo.demo.commmon.aspect;
+package org.zmj.springbootdemo.demo.common.aspect;
 
 import net.sf.json.JSONObject;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -8,8 +8,8 @@ import org.aspectj.lang.annotation.Pointcut;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
-import org.zmj.springbootdemo.demo.commmon.RestfulResult;
-import org.zmj.springbootdemo.demo.commmon.exception.CommonException;
+import org.zmj.springbootdemo.demo.common.RestfulResult;
+import org.zmj.springbootdemo.demo.common.exception.CommonException;
 import org.zmj.springbootdemo.demo.utils.RestfulResultUtils;
 
 /**

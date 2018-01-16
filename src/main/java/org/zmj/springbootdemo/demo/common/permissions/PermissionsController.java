@@ -1,12 +1,12 @@
-package org.zmj.springbootdemo.demo.commmon.permissions;
+package org.zmj.springbootdemo.demo.common.permissions;
 
 import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import org.zmj.springbootdemo.demo.commmon.CommonController;
-import org.zmj.springbootdemo.demo.commmon.aspect.RestfulAnnotation;
+import org.zmj.springbootdemo.demo.common.CommonController;
+import org.zmj.springbootdemo.demo.common.aspect.RestfulAnnotation;
 import org.zmj.springbootdemo.demo.mapper.func.pojo.SysPermission;
 
 import java.util.List;

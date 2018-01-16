@@ -1,4 +1,4 @@
-package org.zmj.springbootdemo.demo.commmon.permissions;
+package org.zmj.springbootdemo.demo.common.permissions;
 
 import org.zmj.springbootdemo.demo.mapper.func.pojo.SysPermission;
 

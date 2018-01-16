@@ -1,4 +1,4 @@
-package org.zmj.springbootdemo.demo.commmon.exception;
+package org.zmj.springbootdemo.demo.common.exception;
 
 import org.zmj.springbootdemo.demo.utils.sysenum.ErrorCode;
 

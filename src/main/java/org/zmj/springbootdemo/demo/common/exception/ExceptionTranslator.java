@@ -1,13 +1,12 @@
-package org.zmj.springbootdemo.demo.commmon.exception;
+package org.zmj.springbootdemo.demo.common.exception;
 
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-import org.zmj.springbootdemo.demo.commmon.RestfulResult;
+import org.zmj.springbootdemo.demo.common.RestfulResult;
 import org.zmj.springbootdemo.demo.utils.RestfulResultUtils;
 import org.zmj.springbootdemo.demo.utils.sysenum.ErrorCode;
-import org.zmj.springbootdemo.demo.utils.sysenum.SysCode;
 import org.zmj.springbootdemo.demo.utils.ZmjUtil;
 
 import javax.servlet.http.HttpServletRequest;

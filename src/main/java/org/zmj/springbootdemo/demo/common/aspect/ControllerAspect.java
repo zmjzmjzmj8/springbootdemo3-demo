@@ -1,4 +1,4 @@
-package org.zmj.springbootdemo.demo.commmon.aspect;
+package org.zmj.springbootdemo.demo.common.aspect;
 
 import net.sf.json.JSONObject;
 import org.aspectj.lang.JoinPoint;
@@ -8,7 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
-import org.zmj.springbootdemo.demo.commmon.RestfulResult;
+import org.zmj.springbootdemo.demo.common.RestfulResult;
 import org.zmj.springbootdemo.demo.utils.ZmjUtil;
 
 import javax.servlet.http.HttpServletRequest;

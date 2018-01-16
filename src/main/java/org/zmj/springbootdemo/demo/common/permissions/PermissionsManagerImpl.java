@@ -1,8 +1,8 @@
-package org.zmj.springbootdemo.demo.commmon.permissions;
+package org.zmj.springbootdemo.demo.common.permissions;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.zmj.springbootdemo.demo.commmon.CommonManager;
+import org.zmj.springbootdemo.demo.common.CommonManager;
 import org.zmj.springbootdemo.demo.mapper.func.dao.SysPermissionDao;
 import org.zmj.springbootdemo.demo.mapper.func.pojo.SysPermission;
 

@@ -2,7 +2,7 @@ package org.zmj.springbootdemo.demo.service.userinfo;
 
 import net.sf.json.JSONArray;
 import org.springframework.web.multipart.MultipartFile;
-import org.zmj.springbootdemo.demo.commmon.exception.CommonException;
+import org.zmj.springbootdemo.demo.common.exception.CommonException;
 import org.zmj.springbootdemo.demo.mapper.func.pojo.SysUserInfo;
 
 import java.io.IOException;
